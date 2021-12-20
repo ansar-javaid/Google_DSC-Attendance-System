@@ -1,0 +1,60 @@
+﻿@page
+@model GDSC.Pages.Members.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Member</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Member.MemberId" />
+            <div class="form-group">
+                <label asp-for="Member.Name" class="control-label"></label>
+                <input asp-for="Member.Name" class="form-control" />
+                <span asp-validation-for="Member.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Member.RegistrationNumber" class="control-label"></label>
+                <input asp-for="Member.RegistrationNumber" class="form-control" />
+                <span asp-validation-for="Member.RegistrationNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Member.Gender" class="control-label"></label>
+                <input asp-for="Member.Gender" class="form-control" />
+                <span asp-validation-for="Member.Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Member.PhoneNumber" class="control-label"></label>
+                <input asp-for="Member.PhoneNumber" class="form-control" />
+                <span asp-validation-for="Member.PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Member.TicketPrice" class="control-label"></label>
+                <input asp-for="Member.TicketPrice" class="form-control" />
+                <span asp-validation-for="Member.TicketPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Member.EventId" class="control-label"></label>
+                <select asp-for="Member.EventId" class="form-control" asp-items="ViewBag.EventId"></select>
+                <span asp-validation-for="Member.EventId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

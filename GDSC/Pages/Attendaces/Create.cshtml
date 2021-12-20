@@ -1,0 +1,48 @@
+﻿@page
+@model GDSC.Pages.Attendaces.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Attendence</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Attendence.Name" class="control-label"></label>
+                <input asp-for="Attendence.Name" class="form-control" />
+                <span asp-validation-for="Attendence.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Attendence.RegistrationNumber" class="control-label"></label>
+                <input asp-for="Attendence.RegistrationNumber" class="form-control" />
+                <span asp-validation-for="Attendence.RegistrationNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Attendence.EventId" class="control-label"></label>
+                <select asp-for="Attendence.EventId" class ="form-control" asp-items="ViewBag.EventId"></select>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Attendence.Present" /> @Html.DisplayNameFor(model => model.Attendence.Present)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
